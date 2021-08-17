@@ -78,8 +78,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)build\$(Platform)_$(Configuration)\</OutDir>
-    <IntDir>BuildCache\$(Platform)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -160,7 +158,9 @@ xcopy /y /c /q "$(SolutionDir)lib\WinDivert64.sys" "$(TargetDir)"</Command>
     <ClCompile Include="tcptable.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="global.cpp" />
+    <ClCompile Include="global.cpp">
+      <FileType>CppHeader</FileType>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
